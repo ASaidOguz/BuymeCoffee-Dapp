@@ -6,7 +6,7 @@ import styles from '../styles/Home.module.css'
 
 export default function Home() {
   // Contract Address & ABI
-  const contractAddress = "0xDBa03676a2fBb6711CB652beF5B7416A53c1421D";
+  const contractAddress = "0x8a6abB6c7567E6b7b0caa54A9174123A3816Ec2f";
   const contractABI = abi.abi;
 
   // Component state
@@ -74,7 +74,7 @@ export default function Home() {
         );
 
         console.log("buying coffee..")
-        const coffeeTxn = await buyMeACoffee.buyCoffee(
+        const coffeeTxn = await buyMeACoffee.BuyCoffee(
           name ? name : "anon",
           message ? message : "Enjoy your coffee!",
           {value: ethers.utils.parseEther("0.001")}
@@ -166,14 +166,14 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Buy Albert a Coffee!</title>
+        <title>Buy Ahmet Said a Coffee!</title>
         <meta name="description" content="Tipping site" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Buy Albert a Coffee!
+          Buy Ahmet Said a Coffee!
         </h1>
         
         {currentAccount ? (
@@ -193,9 +193,9 @@ export default function Home() {
                   />
               </div>
               <br/>
-              <div class="formgroup">
+              <div className="formgroup">
                 <label>
-                  Send Albert a message
+                  Send Ahmet Said a message
                 </label>
                 <br/>
 
