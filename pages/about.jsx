@@ -5,9 +5,10 @@ const About = () => {
     <>   
     <div>
     
-    <h1>This is about page!</h1>
+    <h1>Small Info:</h1>
+    <p>Go-lang Backend developer who loves blockchain and crypto stuff</p>
     </div>
-    <Link href="/">Return Buy me a Coffee</Link>
+    <Link href="/">Return to Buy me a Coffee</Link>
     </>
   )
 }

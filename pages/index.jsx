@@ -206,7 +206,7 @@ const buyLargeCoffee = async () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main className={styles.card}>
         <h1 className={styles.title}>
           Buy Ahmet Said a Coffee!
         </h1>
@@ -270,7 +270,7 @@ const buyLargeCoffee = async () => {
 
       {currentAccount && (memos.map((memo, idx) => {
         return (
-          <div key={idx} style={{border:"2px solid", "border-radius":"5px", padding: "5px", margin: "5px"}}>
+          <div key={idx} className={styles.card}>
             <p style={{"font-weight":"bold"}}>{memo.message}</p>
             <p>From: {memo.name} at {memo.timestamp.toString()}</p>
           </div>
@@ -283,7 +283,7 @@ const buyLargeCoffee = async () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          My Linkedin in case you like the app!
+          My Linkedin in case you like the dapp!
         </a>
       </footer>
     </div>
