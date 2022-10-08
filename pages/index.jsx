@@ -6,7 +6,7 @@ import styles from '../styles/Home.module.css'
 
 export default function Home() {
   // Contract Address & ABI
-  const contractAddress = "0x8a6abB6c7567E6b7b0caa54A9174123A3816Ec2f";
+  const contractAddress = "0x1eE1bb2a264e7E168c4a0818ca81deC8fCB1fc5D";
   const contractABI = abi.abi;
 
   // Component state
@@ -59,7 +59,7 @@ export default function Home() {
       console.log(error);
     }
   }
-
+  //Buy normal coffee for 0.001 eth...
   const buyCoffee = async () => {
     try {
       const {ethereum} = window;
@@ -95,6 +95,41 @@ export default function Home() {
     }
   };
 
+//Buy large coffee for 0.003 eth...
+const buyLargeCoffee = async () => {
+  try {
+    const {ethereum} = window;
+
+    if (ethereum) {
+      const provider = new ethers.providers.Web3Provider(ethereum, "any");
+      const signer = provider.getSigner();
+      const buyMeACoffee = new ethers.Contract(
+        contractAddress,
+        contractABI,
+        signer
+      );
+
+      console.log("buying coffee..")
+      const coffeeTxn = await buyMeACoffee.BuyCoffee(
+        name ? name : "anon",
+        message ? message : "Enjoy your coffee!",
+        {value: ethers.utils.parseEther("0.003")}
+      );
+
+      await coffeeTxn.wait();
+
+      console.log("mined ", coffeeTxn.hash);
+
+      console.log("coffee purchased!");
+
+      // Clear the form fields.
+      setName("");
+      setMessage("");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
   // Function to fetch all memos stored on-chain.
   const getMemos = async () => {
     try {
@@ -216,6 +251,14 @@ export default function Home() {
                   Send 1 Coffee for 0.001ETH
                 </button>
               </div>
+              <div>
+                <button
+                  type="button"
+                  onClick={buyLargeCoffee}
+                >
+                  Send 1 Large Coffee for 0.003ETH
+                </button>
+              </div>
             </form>
           </div>
         ) : (
@@ -236,11 +279,11 @@ export default function Home() {
 
       <footer className={styles.footer}>
         <a
-          href="https://alchemy.com/?a=roadtoweb3weektwo"
+          href="https://www.linkedin.com/in/ahmet-said-oguz/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Created by @thatguyintech for Alchemys Road to Web3 lesson two!
+          My Linkedin in case you like the app!
         </a>
       </footer>
     </div>
